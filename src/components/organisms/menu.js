@@ -5,14 +5,17 @@ import styled from "styled-components";
 export const Menu = props => (
   <>
     <Navigation>
-      <NavigationLink exact to="/" activeClassName="active">
+      <NavigationLink to="/documentation" activeClassName="active">
         Документация
       </NavigationLink>
-      <NavigationLink to="/params/?some-param=505" activeClassName="active">
+      <NavigationLink
+        to="/tabs-with-params/?some-param=404"
+        activeClassName="active"
+      >
         Табы&nbsp;с&nbsp;учетом&nbsp;параметров
       </NavigationLink>
       <NavigationLink
-        to="/only-page-param/?some-param=505"
+        to="/tabs-without-params/?some-param=404"
         activeClassName="active"
       >
         Табы&nbsp;без&nbsp;учета&nbsp;параметров
