@@ -2,17 +2,25 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { ConnectedRouter } from "connected-react-router";
-import { Switch, Route } from "react-router-dom";
 import { store } from "./constants/store";
 import { history } from "./constants/global";
+import { Reset } from "styled-reset";
+import { createGlobalStyle } from "styled-components";
 import { App } from "./app";
+
+const GlobalStyles = createGlobalStyle`
+  html, body {
+    font-family: 'Source Sans Pro', 'Lucida Grande', sans-serif;
+    line-height: 1;
+  }
+`;
 
 const Index = () => (
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <Switch>
-        <Route path="/" component={App} />
-      </Switch>
+      <Reset />
+      <GlobalStyles />
+      <App />
     </ConnectedRouter>
   </Provider>
 );
