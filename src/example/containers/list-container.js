@@ -13,21 +13,17 @@ class ListContainer extends Component {
     this.setState({ list: data.results, isLoading: false });
   };
 
-  withTimeout = fn => {
-    const { queryId } = this.state;
-    clearTimeout(queryId);
-
-    const newQueryId = setTimeout(fn, 500);
-
-    this.setState({
-      queryId: newQueryId
-    });
-  };
-
   // ----------------Lifecycle------------------
+
+  componentDidMount = () => {
+    const { params } = this.props;
+
+    this.loadData(params);
+  };
 
   componentDidUpdate = () => {
     const { params } = this.props;
+    console.log(params);
 
     this.loadData(params);
   };
@@ -35,14 +31,12 @@ class ListContainer extends Component {
   componentDidUpdate = prevProps => {
     const { params } = this.props;
 
-    if (prevProps.params !== params)
-      this.withTimeout(() => this.loadData(params));
+    if (prevProps.params !== params) this.loadData(params);
   };
 
   state = {
     list: [],
-    isLoading: false,
-    queryId: 0
+    isLoading: false
   };
 
   render = () => (

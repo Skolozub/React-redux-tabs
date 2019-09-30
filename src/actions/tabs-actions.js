@@ -1,6 +1,6 @@
 import { TABS_REGISTERED, TABS_SET_PARAMS, TABS_DEL_PARAMS } from "./constants";
 
-export const redisterTabs = ({ tabsName, options }) => ({
+export const redisterTabsComponent = ({ tabsName, options }) => ({
   type: TABS_REGISTERED,
   payload: { tabsName, options }
 });
@@ -10,7 +10,7 @@ export const setTabsParams = ({ tabsName, params }) => ({
   payload: { tabsName, params }
 });
 
-export const deleteTabs = ({ tabsName }) => ({
+export const deleteTabsComponent = ({ tabsName }) => ({
   type: TABS_DEL_PARAMS,
   payload: { tabsName }
 });
